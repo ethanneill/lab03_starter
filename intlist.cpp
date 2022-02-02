@@ -19,18 +19,25 @@ IntList::IntList(const IntList& source) {
  
 // destructor deletes all nodes
 IntList::~IntList() {
-    //IMPLEMENT THIS
-   
-    //start from head
     Node* p = first;
     while(p != nullptr) {
         Node* n = p->next;
+        delete p;
+        p = n;
+    }
 }
  
  
 // return sum of values in list
 int IntList::sum() const {
-    return 0; // REPLACE THIS NON-SOLUTION
+    int add = 0;
+    Node* p = first;
+
+    while(p){
+        add += p->info;
+        p = p->next;
+    }
+    return add;
 }
  
 // returns true if value is in the list; false if not
@@ -78,7 +85,10 @@ int IntList::max() const {
 // returns average (arithmetic mean) of all values, or
 // 0 if list is empty
 double IntList::average() const {
-    return 0.0; // REPLACE THIS NON-SOLUTION
+    double s = sum();
+    double c = count();
+    double avg = s/c;
+    return avg;
 }
  
 // inserts value as new node at beginning of list
