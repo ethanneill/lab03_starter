@@ -128,8 +128,20 @@ void IntList::insertFirst(int value) {
 //Assignment operator should copy the list from the source
 //to this list, deleting/replacing any existing nodes
 IntList& IntList::operator=(const IntList& source){
-    //IMPLEMENT
-    return *this;
+    this->~IntList();
+    this->first = nullptr;
+    if(source.first == 0){
+        this->first == nullptr;
+        return *this;
+    }
+    else{
+        Node* p = source.first;
+        while(p){
+            this->append(p->info);
+            p = p->next;
+        }
+        return *this;
+    }
 }
  
  
