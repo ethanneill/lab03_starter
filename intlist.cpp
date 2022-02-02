@@ -85,10 +85,15 @@ int IntList::max() const {
 // returns average (arithmetic mean) of all values, or
 // 0 if list is empty
 double IntList::average() const {
-    double s = sum();
-    double c = count();
-    double avg = s/c;
-    return avg;
+    if (first == 0) { // empty list
+        return 0;
+    }
+    else{
+        double s = sum();
+        double c = count();
+        double avg = s/c;
+        return avg;
+    }
 }
  
 // inserts value as new node at beginning of list
