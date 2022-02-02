@@ -13,7 +13,14 @@ using std::cout;
  
 // copy constructor
 IntList::IntList(const IntList& source) {
-   
+   first = nullptr;
+  
+   Node* p = source.first;
+  
+   while (p) {
+       append(p->info);
+       p = p->next;
+   }
  
 }
  
